@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import smokingIcon from "./icons/smoking-icon.png";
+import Clocks from "./Clocks.js";
+import SetDeadline from "./SetDeadline.js";
 
 export const Habbits = () => {
   const [availableHabbits, setAvailableHabbits] = useState([
@@ -10,14 +11,21 @@ export const Habbits = () => {
     "IRREGULAR SLEEPING",
   ]);
   const [selectedHabbits, setSelectedHabbits] = useState([]);
+  const [initialDuration, setInitialDuration] = useState(0); // Initial duration in seconds
+
   const handleItemClick = (habbit) => {
     setAvailableHabbits(availableHabbits.filter((item) => item !== habbit));
     setSelectedHabbits([...selectedHabbits, habbit]);
   };
+
+  const handleAdjustTime = (duration) => {
+    setInitialDuration(duration);
+  };
+
   return (
     <div>
       <h4 className="choose-habbits">
-        CHOOSE ACTIVITIES, THAT ARE NEGATIVELY AFFECTING YOUR LIFE
+        CHOOSE ONE(!) HABBIT, THAT IS NEGATIVELY AFFECTING YOUR LIFE
       </h4>
       <ul className="list-of-habbits">
         {availableHabbits.map((habbit) => (
@@ -26,18 +34,16 @@ export const Habbits = () => {
           </li>
         ))}
       </ul>
-      <h4 className="bad-habbits-to-work-on">BAD HABBITS TO WORK ON</h4>
+      <h4 className="bad-habbits-to-work-on">BAD HABBIT TO WORK ON</h4>
       <ul className="list-of-selected-habbits">
         {selectedHabbits.map((habbit) => (
-          <li key={habbit}>{habbit}</li>
+          <li key={habbit}>
+            {habbit}
+            <Clocks initialDuration={initialDuration} />
+            <SetDeadline onAdjust={handleAdjustTime} />
+          </li>
         ))}
       </ul>
-
-      {/* <li id="smoking">SMOKING</li>
-        <li id="porn">PORN</li>
-        <li id="scrolling">SCROLLING</li>
-        <li id="snus">SNUS</li>
-        <li id="irregular sleeping">IRREGULAR SLEEPING</li> */}
     </div>
   );
 };
