@@ -17,3 +17,47 @@
   font-weight: 400;
   font-style: normal;
 }
+
+.smoking-icon {
+  width: 30px;
+}
+
+.choose-habbits,
+.bad-habbits-to-work-on {
+  font-family: "Poetsen One";
+  text-align: center;
+  opacity: 50%;
+}
+
+.list-of-habbits {
+  display: flex;
+  justify-content: center;
+}
+
+.list-of-selected-habbits {
+    max-width: 350px;
+    margin: 0 auto; /* Center horizontally */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: center; /* Center horizontally */
+  }
+
+.list-of-habbits li {
+  font-family: "Poetsen One";
+  list-style-type: none;
+  margin: 10px 10px 30px 30px;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+}
+
+.list-of-selected-habbits li {
+  font-family: "Poetsen One";
+  list-style-type: none;
+  margin: 10px 10px 30px 30px;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  align-items: center;
+}
